@@ -1,0 +1,265 @@
+{
+  "chapter": 1,
+  "arc_name": "La Selva No Perdona",
+  "missions": [
+    {
+      "id": "m1_01_despertar",
+      "title": "Despertar en la Selva",
+      "description": "Despierta en un campamento guerrillero del Putumayo. Encuentra tu equipo y habla con el Comandante Araña.",
+      "type": "Main",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": false,
+      "xp_reward": 100,
+      "objectives": [
+        {
+          "id": "obj_01_levantarse",
+          "description": "Levántate del catre",
+          "type": "GoToLocation",
+          "target_id": "campamento_catre",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_equipo",
+          "description": "Recoge tu equipo del baúl",
+          "type": "CollectItem",
+          "target_id": "baul_equipo",
+          "target_count": 1,
+          "is_required": true
+        },
+        {
+          "id": "obj_03_hablar_arana",
+          "description": "Habla con el Comandante Araña",
+          "type": "TalkToNPC",
+          "target_id": "npc_comandante_arana",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": []
+    },
+    {
+      "id": "m1_02_patrulla",
+      "title": "Patrulla en el Río",
+      "description": "Acompaña a la patrulla por el río Putumayo. Vigila la orilla y reporta actividad sospechosa.",
+      "type": "Main",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": false,
+      "xp_reward": 200,
+      "objectives": [
+        {
+          "id": "obj_01_bote",
+          "description": "Sube al bote con la patrulla",
+          "type": "GoToLocation",
+          "target_id": "muelle_campamento",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_vigilar",
+          "description": "Vigila la orilla derecha durante el trayecto",
+          "type": "Survive",
+          "target_id": "rio_patrulla",
+          "target_count": 120,
+          "is_required": true
+        },
+        {
+          "id": "obj_03_reportar",
+          "description": "Reporta el campamento militar avistado",
+          "type": "MakeDecision",
+          "target_id": "decision_reportar_campamento",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_01_completed"]
+    },
+    {
+      "id": "m1_03_emboscada",
+      "title": "Emboscada en la Trocha",
+      "description": "Un convoy militar se acerca por la trocha. El Comandante ordena una emboscada. Tú decides cómo actuar.",
+      "type": "Main",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": false,
+      "xp_reward": 350,
+      "objectives": [
+        {
+          "id": "obj_01_posicion",
+          "description": "Toma posición en la cobertura asignada",
+          "type": "GoToLocation",
+          "target_id": "cobertura_emboscada",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_esperar",
+          "description": "Espera la señal del Comandante",
+          "type": "Survive",
+          "target_id": "espera_senal",
+          "target_count": 30,
+          "is_required": true
+        },
+        {
+          "id": "obj_03_combate",
+          "description": "Neutraliza a los soldados del convoy",
+          "type": "KillTarget",
+          "target_id": "soldados_convoy",
+          "target_count": 5,
+          "is_required": true
+        },
+        {
+          "id": "obj_04_decision_herido",
+          "description": "Decide qué hacer con el soldado herido",
+          "type": "MakeDecision",
+          "target_id": "decision_soldado_herido",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_02_completed"]
+    },
+    {
+      "id": "m1_04_aldea",
+      "title": "La Aldea Silenciosa",
+      "description": "Una aldea indígena cercana no ha respondido a las comunicaciones. Investiga qué sucedió.",
+      "type": "Main",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": false,
+      "xp_reward": 400,
+      "objectives": [
+        {
+          "id": "obj_01_llegar_aldea",
+          "description": "Llega a la aldea — 340m",
+          "type": "GoToLocation",
+          "target_id": "aldea_indigena",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_investigar",
+          "description": "Investiga las casas abandonadas (0/4)",
+          "type": "CollectItem",
+          "target_id": "pistas_aldea",
+          "target_count": 4,
+          "is_required": true
+        },
+        {
+          "id": "obj_03_sobreviviente",
+          "description": "Encuentra al sobreviviente escondido",
+          "type": "TalkToNPC",
+          "target_id": "npc_sobreviviente_indigena",
+          "is_required": true
+        },
+        {
+          "id": "obj_04_decision_ayuda",
+          "description": "Decide si ayudas a los indígenas o sigues órdenes",
+          "type": "MakeDecision",
+          "target_id": "decision_ayudar_indigenas",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_03_completed"]
+    },
+    {
+      "id": "m1_05_coca",
+      "title": "Los Cultivos del Norte",
+      "description": "El Cartel del Norte controla cultivos de coca cerca del territorio. El Comandante quiere destruirlos, pero hay campesinos trabajando.",
+      "type": "Main",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": false,
+      "xp_reward": 500,
+      "objectives": [
+        {
+          "id": "obj_01_infiltrar",
+          "description": "Infiltra el perímetro del cultivo sin ser detectado",
+          "type": "AvoidDetection",
+          "target_id": "perimetro_coca",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_reconocer",
+          "description": "Identifica las posiciones de los guardias (0/3)",
+          "type": "CollectItem",
+          "target_id": "posiciones_guardias",
+          "target_count": 3,
+          "is_required": true
+        },
+        {
+          "id": "obj_03_decision_cultivo",
+          "description": "Decide: destruir cultivos (campesinos pierden trabajo) o solo eliminar guardias",
+          "type": "MakeDecision",
+          "target_id": "decision_cultivos",
+          "is_required": true
+        },
+        {
+          "id": "obj_04_escapar",
+          "description": "Escapa de la zona antes de que lleguen refuerzos",
+          "type": "GoToLocation",
+          "target_id": "punto_extraccion_selva",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_04_completed"]
+    },
+    {
+      "id": "m1_side_01_medicina",
+      "title": "Medicina para el Campamento",
+      "description": "El médico del campamento necesita hierbas medicinales de la selva profunda.",
+      "type": "Side",
+      "chapter": 1,
+      "given_by": "FrenteAmazonico",
+      "is_optional": true,
+      "xp_reward": 150,
+      "objectives": [
+        {
+          "id": "obj_01_recolectar",
+          "description": "Recolecta plantas medicinales (0/5)",
+          "type": "CollectItem",
+          "target_id": "plantas_medicinales",
+          "target_count": 5,
+          "is_required": true
+        },
+        {
+          "id": "obj_02_entregar",
+          "description": "Entrega las plantas al médico",
+          "type": "TalkToNPC",
+          "target_id": "npc_medico_campamento",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_01_completed"]
+    },
+    {
+      "id": "m1_side_02_desertor",
+      "title": "El Desertor",
+      "description": "Un compañero quiere desertar. Te pide ayuda para escapar. Si lo descubren, ambos mueren.",
+      "type": "Side",
+      "chapter": 1,
+      "given_by": "Civiles",
+      "is_optional": true,
+      "xp_reward": 300,
+      "objectives": [
+        {
+          "id": "obj_01_hablar",
+          "description": "Escucha la propuesta del desertor",
+          "type": "TalkToNPC",
+          "target_id": "npc_desertor",
+          "is_required": true
+        },
+        {
+          "id": "obj_02_decision",
+          "description": "Decide: ayudarlo a escapar, convencerlo de quedarse, o delatarlo",
+          "type": "MakeDecision",
+          "target_id": "decision_desertor",
+          "is_required": true
+        }
+      ],
+      "required_chapter": 1,
+      "required_flags": ["m1_02_completed"]
+    }
+  ]
+}

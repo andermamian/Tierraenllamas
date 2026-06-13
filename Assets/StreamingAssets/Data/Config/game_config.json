@@ -1,0 +1,232 @@
+{
+  "game_info": {
+    "title": "Tierra en Llamas",
+    "subtitle": "Colombia: Selva, Ciudad y Conflicto",
+    "version": "2.0",
+    "engine": "Unity 6",
+    "platform": "Android",
+    "min_android_version": "8.0",
+    "target_android_version": "14",
+    "genre": "Third-Person Shooter / Action-Adventure / Narrative",
+    "rating": "M (Mature 17+)",
+    "developer": "Tierra en Llamas Studio",
+    "year": 2025
+  },
+  "difficulty_levels": [
+    {
+      "id": 0,
+      "name": "Explorador",
+      "description": "Para quienes quieren disfrutar la historia sin frustración.",
+      "enemy_damage_multiplier": 0.5,
+      "player_damage_multiplier": 1.5,
+      "enemy_accuracy": 0.4,
+      "aim_assist": 0.8,
+      "decision_timer_multiplier": 2.0,
+      "resource_multiplier": 1.5
+    },
+    {
+      "id": 1,
+      "name": "Guerrillero",
+      "description": "Experiencia balanceada. Combate desafiante con narrativa rica.",
+      "enemy_damage_multiplier": 1.0,
+      "player_damage_multiplier": 1.0,
+      "enemy_accuracy": 0.65,
+      "aim_assist": 0.4,
+      "decision_timer_multiplier": 1.0,
+      "resource_multiplier": 1.0
+    },
+    {
+      "id": 2,
+      "name": "Veterano",
+      "description": "Para jugadores experimentados. Cada bala cuenta.",
+      "enemy_damage_multiplier": 1.5,
+      "player_damage_multiplier": 0.8,
+      "enemy_accuracy": 0.8,
+      "aim_assist": 0.1,
+      "decision_timer_multiplier": 0.7,
+      "resource_multiplier": 0.6
+    },
+    {
+      "id": 3,
+      "name": "Realista",
+      "description": "Un disparo puede matarte. Sin HUD. Sin piedad.",
+      "enemy_damage_multiplier": 2.5,
+      "player_damage_multiplier": 0.5,
+      "enemy_accuracy": 0.9,
+      "aim_assist": 0.0,
+      "decision_timer_multiplier": 0.5,
+      "resource_multiplier": 0.3,
+      "disable_hud": true,
+      "friendly_fire": true,
+      "permanent_wounds": true
+    }
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "name": "La Selva No Perdona",
+      "location": "Putumayo - Selva Amazónica",
+      "description": "El protagonista despierta en un campamento guerrillero. Debe sobrevivir, ganarse la confianza del grupo y enfrentar las primeras decisiones morales.",
+      "main_missions": 5,
+      "side_missions": 4,
+      "estimated_hours": 4
+    },
+    {
+      "id": 2,
+      "name": "Luces y Sombras",
+      "location": "Medellín - Ciudad Nocturna",
+      "description": "Enviado a Medellín como contacto urbano. Discotecas, sicarios, y la tentación del dinero fácil del narcotráfico.",
+      "main_missions": 6,
+      "side_missions": 5,
+      "estimated_hours": 5
+    },
+    {
+      "id": 3,
+      "name": "La Capital Gris",
+      "location": "Bogotá - Zona Andina",
+      "description": "Infiltración en la capital. Política, corrupción, y la posibilidad de un acuerdo de paz... o de una traición definitiva.",
+      "main_missions": 6,
+      "side_missions": 4,
+      "estimated_hours": 5
+    },
+    {
+      "id": 4,
+      "name": "Cenizas",
+      "location": "Múltiple - Final",
+      "description": "Las consecuencias de todas las decisiones convergen. Cinco finales posibles según el karma y las alianzas.",
+      "main_missions": 3,
+      "side_missions": 2,
+      "estimated_hours": 3
+    }
+  ],
+  "endings": [
+    {
+      "id": "la_paz_imperfecta",
+      "name": "La Paz Imperfecta",
+      "description": "El protagonista media un acuerdo de paz. No es perfecto, pero salva vidas.",
+      "requirements": "Humanidad > 70, Honor > 60",
+      "tone": "Esperanzador pero agridulce"
+    },
+    {
+      "id": "el_hombre_del_estado",
+      "name": "El Hombre del Estado",
+      "description": "Se une definitivamente a las fuerzas del gobierno. Orden a cualquier precio.",
+      "requirements": "Fuerza Nacional > 80, Honor > 50",
+      "tone": "Autoritario, frío"
+    },
+    {
+      "id": "la_selva_lo_reclamo",
+      "name": "La Selva Lo Reclamó",
+      "description": "Se convierte en líder guerrillero. La selva es su hogar y su tumba.",
+      "requirements": "Frente Amazónico > 80, Humanidad < 40",
+      "tone": "Trágico, inevitable"
+    },
+    {
+      "id": "el_senor_del_norte",
+      "name": "El Señor del Norte",
+      "description": "Abraza el narcotráfico. Poder y dinero, pero a qué costo.",
+      "requirements": "Cartel del Norte > 80, Honor < 30",
+      "tone": "Oscuro, corrupto"
+    },
+    {
+      "id": "la_ceniza",
+      "name": "La Ceniza",
+      "description": "Todos lo traicionan. Muere solo, sin bando, sin causa. La guerra se lo tragó.",
+      "requirements": "Honor < 40, Humanidad < 40 (o ningún otro final disponible)",
+      "tone": "Nihilista, devastador"
+    }
+  ],
+  "characters": [
+    {
+      "id": "protagonista",
+      "name": "El Protagonista",
+      "age": 24,
+      "origin": "Caquetá",
+      "description": "Joven reclutado por la guerrilla. Su pasado es un misterio que se revela en flashbacks.",
+      "faction": "FrenteAmazonico",
+      "role": "Jugador"
+    },
+    {
+      "id": "comandante_arana",
+      "name": "Comandante Araña",
+      "age": 45,
+      "origin": "Meta",
+      "description": "Líder del frente guerrillero. Veterano de 20 años de guerra. Pragmático y despiadado, pero con un código de honor propio.",
+      "faction": "FrenteAmazonico",
+      "role": "Mentor/Antagonista potencial"
+    },
+    {
+      "id": "la_doctora",
+      "name": "La Doctora",
+      "age": 32,
+      "origin": "Bogotá",
+      "description": "Médica de la ONG que opera en zona de conflicto. Idealista, valiente. Posible interés romántico.",
+      "faction": "Civiles",
+      "role": "Aliada/Interés romántico"
+    },
+    {
+      "id": "el_patron",
+      "name": "Don Aurelio 'El Patrón'",
+      "age": 55,
+      "origin": "Antioquia",
+      "description": "Jefe del Cartel del Norte. Carismático y brutal. Ofrece riqueza a cambio de lealtad absoluta.",
+      "faction": "CartelDelNorte",
+      "role": "Antagonista/Aliado potencial"
+    },
+    {
+      "id": "coronel_vargas",
+      "name": "Coronel Vargas",
+      "age": 50,
+      "origin": "Boyacá",
+      "description": "Oficial de inteligencia militar. Busca infiltrados y no distingue entre guerrilleros y civiles.",
+      "faction": "FuerzaNacional",
+      "role": "Antagonista/Aliado potencial"
+    },
+    {
+      "id": "marcos",
+      "name": "Marcos 'El Flaco'",
+      "age": 19,
+      "origin": "Putumayo",
+      "description": "Compañero guerrillero. Joven, impulsivo, leal. Tu mejor amigo en el campamento.",
+      "faction": "FrenteAmazonico",
+      "role": "Compañero"
+    }
+  ],
+  "player_stats": {
+    "initial_values": {
+      "health": 100,
+      "max_health": 100,
+      "stamina": 100,
+      "combate": 10,
+      "sigilo": 10,
+      "persuasion": 10,
+      "resistencia": 10,
+      "supervivencia": 10
+    },
+    "max_level": 30,
+    "xp_per_level": [0, 100, 250, 450, 700, 1000, 1400, 1900, 2500, 3200, 4000, 5000, 6200, 7600, 9200, 11000, 13000, 15500, 18500, 22000, 26000, 30500, 35500, 41000, 47000, 54000, 62000, 71000, 81000, 92000],
+    "skill_points_per_level": 3
+  },
+  "audio_settings": {
+    "music_tracks": {
+      "selva_exploration": "Guitarra acústica + sonidos de selva, tempo lento",
+      "medellin_night": "Cumbia electrónica + bajo pesado, ambiente de discoteca",
+      "bogota_tension": "Cuerdas tensas + piano minimalista, atmósfera fría",
+      "combat_intense": "Percusión tribal + guitarras distorsionadas, tempo rápido",
+      "stealth_tension": "Sintetizador grave + heartbeat, minimal",
+      "emotional": "Cuerdas + flauta andina, melancólico",
+      "boss_fight": "Orquesta completa + coros, épico"
+    }
+  },
+  "graphics_settings": {
+    "render_pipeline": "URP",
+    "target_fps_low": 30,
+    "target_fps_high": 60,
+    "shadow_distance_low": 30,
+    "shadow_distance_high": 80,
+    "texture_quality_levels": ["Quarter", "Half", "Full"],
+    "post_processing_levels": ["Off", "Low", "Medium", "High"],
+    "vegetation_density_levels": [0.3, 0.6, 1.0],
+    "draw_distance_levels": [100, 200, 400]
+  }
+}

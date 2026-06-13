@@ -1,0 +1,374 @@
+{
+  "dialogues": [
+    {
+      "id": "dlg_comandante_arana_intro",
+      "title": "Primer encuentro con Comandante Araña",
+      "nodes": [
+        {
+          "id": "node_01",
+          "speaker_name": "Comandante Araña",
+          "text": "Al fin despertaste, hermano. Tres días con fiebre... pensamos que la selva te iba a tragar.",
+          "emotion": "neutral",
+          "next_node_id": "node_02",
+          "animation_trigger": "talk_serious",
+          "sound_effect": "sfx_jungle_ambient"
+        },
+        {
+          "id": "node_02",
+          "speaker_name": "Comandante Araña",
+          "text": "Aquí no hay hospital ni mamá que te cuide. Aquí sobrevives o te pudres. Así de simple.",
+          "emotion": "serious",
+          "next_node_id": "node_03",
+          "camera_angle": "close_up"
+        },
+        {
+          "id": "node_03",
+          "speaker_name": "Comandante Araña",
+          "text": "Te necesito operativo. Hay movimiento en el río y los paracos están inquietos. ¿Estás listo?",
+          "emotion": "questioning",
+          "has_timer": false,
+          "choices": [
+            {
+              "text": "Siempre listo, Comandante.",
+              "next_node_id": "node_04a",
+              "honor_change": 5,
+              "humanidad_change": 0,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 5 }
+              ],
+              "type": "Normal",
+              "journal_note": "Mostré lealtad al Comandante Araña desde el primer momento."
+            },
+            {
+              "text": "¿Qué pasó mientras estuve inconsciente?",
+              "next_node_id": "node_04b",
+              "honor_change": 0,
+              "humanidad_change": 0,
+              "type": "Neutral",
+              "journal_note": "Pedí información antes de comprometerme."
+            },
+            {
+              "text": "No sé si esto es lo que quiero...",
+              "next_node_id": "node_04c",
+              "honor_change": -5,
+              "humanidad_change": 5,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": -3 }
+              ],
+              "type": "Peaceful",
+              "journal_note": "Expresé dudas sobre mi lugar en la guerrilla."
+            }
+          ]
+        },
+        {
+          "id": "node_04a",
+          "speaker_name": "Comandante Araña",
+          "text": "Así me gusta. Un guerrero de verdad. Recoge tu fusil del baúl y preséntate en el muelle en diez minutos.",
+          "emotion": "pleased",
+          "next_node_id": null,
+          "set_flags": ["arana_pleased"]
+        },
+        {
+          "id": "node_04b",
+          "speaker_name": "Comandante Araña",
+          "text": "Los Halcones masacraron una aldea río arriba. La Fuerza Nacional mandó helicópteros. Y el Cartel... el Cartel siempre está ahí, como las culebras.",
+          "emotion": "serious",
+          "next_node_id": "node_04b_2"
+        },
+        {
+          "id": "node_04b_2",
+          "speaker_name": "Comandante Araña",
+          "text": "Por eso te necesito. ¿Puedo contar contigo o no?",
+          "emotion": "demanding",
+          "choices": [
+            {
+              "text": "Puede contar conmigo.",
+              "next_node_id": "node_04a",
+              "honor_change": 3,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 3 }
+              ],
+              "type": "Normal"
+            },
+            {
+              "text": "Necesito pensarlo.",
+              "next_node_id": "node_04c",
+              "honor_change": -2,
+              "type": "Neutral"
+            }
+          ]
+        },
+        {
+          "id": "node_04c",
+          "speaker_name": "Comandante Araña",
+          "text": "Mira, parcero... aquí nadie te obligó a venir. Pero ahora que estás, no hay salida fácil. Piénsalo bien.",
+          "emotion": "threatening",
+          "next_node_id": null,
+          "set_flags": ["arana_suspicious"]
+        }
+      ]
+    },
+    {
+      "id": "dlg_soldado_herido",
+      "title": "Decisión del soldado herido en la emboscada",
+      "nodes": [
+        {
+          "id": "node_01",
+          "speaker_name": "Soldado Herido",
+          "text": "*tosiendo sangre* Por favor... tengo una hija en Bogotá... no me maten...",
+          "emotion": "desperate",
+          "next_node_id": "node_02",
+          "sound_effect": "sfx_coughing_blood"
+        },
+        {
+          "id": "node_02",
+          "speaker_name": "Guerrillero Marcos",
+          "text": "¿Qué hacemos con este, hermano? El Comandante dijo que no dejáramos testigos.",
+          "emotion": "cold",
+          "has_timer": true,
+          "timer_duration": 20,
+          "choices": [
+            {
+              "text": "Déjalo ir. Que se arrastre hasta los suyos.",
+              "next_node_id": "node_03a",
+              "honor_change": -5,
+              "humanidad_change": 20,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": -10 },
+                { "faction": "FuerzaNacional", "change": 5 },
+                { "faction": "Civiles", "change": 10 }
+              ],
+              "set_flags": ["soldado_perdonado"],
+              "type": "Peaceful",
+              "journal_note": "Perdoné al soldado herido. El Comandante no estará contento."
+            },
+            {
+              "text": "Remátalo. Son las órdenes.",
+              "next_node_id": "node_03b",
+              "honor_change": 5,
+              "humanidad_change": -15,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 10 },
+                { "faction": "Civiles", "change": -15 }
+              ],
+              "set_flags": ["soldado_ejecutado"],
+              "type": "Aggressive",
+              "journal_note": "Ejecuté al soldado herido. Seguí las órdenes."
+            },
+            {
+              "text": "Llévalo como prisionero. Puede servir para negociar.",
+              "next_node_id": "node_03c",
+              "honor_change": 10,
+              "humanidad_change": 5,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 5 }
+              ],
+              "set_flags": ["soldado_prisionero"],
+              "type": "Normal",
+              "required_skill": "Persuasion",
+              "required_skill_level": 20,
+              "skill_check_label": "[Persuasión 20]",
+              "journal_note": "Convencí a Marcos de tomar al soldado como prisionero."
+            }
+          ]
+        },
+        {
+          "id": "node_03a",
+          "speaker_name": "Guerrillero Marcos",
+          "text": "¿Estás loco? Si el Comandante se entera... Bueno, es tu pellejo, hermano.",
+          "emotion": "shocked",
+          "next_node_id": null
+        },
+        {
+          "id": "node_03b",
+          "speaker_name": "Narrador",
+          "text": "El disparo resuena en la selva. Los pájaros huyen. Algo dentro de ti se endurece.",
+          "emotion": "neutral",
+          "next_node_id": null,
+          "sound_effect": "sfx_gunshot_execution"
+        },
+        {
+          "id": "node_03c",
+          "speaker_name": "Guerrillero Marcos",
+          "text": "Hmm... no es mala idea. El Comandante podría usarlo. Está bien, cárgalo tú.",
+          "emotion": "thoughtful",
+          "next_node_id": null
+        }
+      ]
+    },
+    {
+      "id": "dlg_sobreviviente_aldea",
+      "title": "Encuentro con el sobreviviente indígena",
+      "nodes": [
+        {
+          "id": "node_01",
+          "speaker_name": "Anciano Indígena",
+          "text": "¡No dispare! ¡No dispare, por favor! Somos gente de paz...",
+          "emotion": "terrified",
+          "next_node_id": "node_02",
+          "sound_effect": "sfx_old_man_crying"
+        },
+        {
+          "id": "node_02",
+          "speaker_name": "Anciano Indígena",
+          "text": "Vinieron los hombres de gris... Los Halcones. Se llevaron a los jóvenes. A las mujeres las... *llora*",
+          "emotion": "crying",
+          "next_node_id": "node_03"
+        },
+        {
+          "id": "node_03",
+          "speaker_name": "Anciano Indígena",
+          "text": "Dijeron que si alguien hablaba con la guerrilla, volverían a quemar todo. Pero usted... usted es de ellos, ¿verdad?",
+          "emotion": "fearful",
+          "has_timer": true,
+          "timer_duration": 25,
+          "choices": [
+            {
+              "text": "Soy guerrillero, sí. Pero no vine a hacerle daño. Cuénteme todo.",
+              "next_node_id": "node_04a",
+              "honor_change": 5,
+              "humanidad_change": 10,
+              "faction_changes": [
+                { "faction": "Civiles", "change": 15 }
+              ],
+              "type": "Peaceful",
+              "journal_note": "Fui honesto con el anciano y le ofrecí protección."
+            },
+            {
+              "text": "No importa quién soy. Dígame dónde fueron los Halcones.",
+              "next_node_id": "node_04b",
+              "honor_change": 0,
+              "humanidad_change": -5,
+              "type": "Neutral",
+              "journal_note": "Interrogué al anciano sin mostrar compasión."
+            },
+            {
+              "text": "Si no habla, no puedo protegerlo. Los Halcones volverán de todos modos.",
+              "next_node_id": "node_04c",
+              "honor_change": -5,
+              "humanidad_change": -10,
+              "faction_changes": [
+                { "faction": "Civiles", "change": -10 }
+              ],
+              "type": "Aggressive",
+              "journal_note": "Amenacé al anciano para obtener información."
+            }
+          ]
+        },
+        {
+          "id": "node_04a",
+          "speaker_name": "Anciano Indígena",
+          "text": "Gracias, hijo. Se fueron río abajo, hacia la finca grande. Tienen a veinte personas allá. Por favor... sálvelos.",
+          "emotion": "hopeful",
+          "next_node_id": null,
+          "set_flags": ["aldea_info_completa", "anciano_confia"]
+        },
+        {
+          "id": "node_04b",
+          "speaker_name": "Anciano Indígena",
+          "text": "Río abajo... la finca del patrón. Es todo lo que sé. Ahora déjeme en paz.",
+          "emotion": "resigned",
+          "next_node_id": null,
+          "set_flags": ["aldea_info_parcial"]
+        },
+        {
+          "id": "node_04c",
+          "speaker_name": "Anciano Indígena",
+          "text": "*temblando* La finca... río abajo... por favor, no me haga nada más...",
+          "emotion": "terrified",
+          "next_node_id": null,
+          "set_flags": ["aldea_info_forzada", "anciano_aterrorizado"]
+        }
+      ]
+    },
+    {
+      "id": "dlg_decision_cultivos",
+      "title": "Decisión sobre los cultivos de coca",
+      "nodes": [
+        {
+          "id": "node_01",
+          "speaker_name": "Protagonista (interno)",
+          "text": "Los cultivos están frente a mí. Puedo ver a los campesinos trabajando... familias enteras que dependen de esta coca para sobrevivir.",
+          "emotion": "conflicted",
+          "next_node_id": "node_02"
+        },
+        {
+          "id": "node_02",
+          "speaker_name": "Protagonista (interno)",
+          "text": "Si destruyo los cultivos, cumplo la misión. Pero estas familias se quedan sin nada. Si solo elimino a los guardias del Cartel, los campesinos quedan libres... pero la coca sigue fluyendo.",
+          "emotion": "conflicted",
+          "has_timer": true,
+          "timer_duration": 30,
+          "choices": [
+            {
+              "text": "Destruir todo. La coca es veneno, no importa quién la cultive.",
+              "next_node_id": "node_03a",
+              "honor_change": 10,
+              "humanidad_change": -15,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 15 },
+                { "faction": "CartelDelNorte", "change": -20 },
+                { "faction": "Civiles", "change": -15 }
+              ],
+              "set_flags": ["cultivos_destruidos"],
+              "type": "Aggressive",
+              "journal_note": "Destruí los cultivos. Las familias perdieron su sustento, pero la misión se cumplió."
+            },
+            {
+              "text": "Solo eliminar a los guardias. Los campesinos no son el enemigo.",
+              "next_node_id": "node_03b",
+              "honor_change": -5,
+              "humanidad_change": 15,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": -5 },
+                { "faction": "CartelDelNorte", "change": -10 },
+                { "faction": "Civiles", "change": 20 }
+              ],
+              "set_flags": ["guardias_eliminados_campesinos_libres"],
+              "type": "Peaceful",
+              "journal_note": "Liberé a los campesinos del yugo del Cartel sin destruir su medio de vida."
+            },
+            {
+              "text": "Negociar con los campesinos. Ofrecerles protección a cambio de información.",
+              "next_node_id": "node_03c",
+              "honor_change": 5,
+              "humanidad_change": 5,
+              "faction_changes": [
+                { "faction": "FrenteAmazonico", "change": 5 },
+                { "faction": "Civiles", "change": 10 }
+              ],
+              "set_flags": ["campesinos_aliados"],
+              "type": "Normal",
+              "required_skill": "Persuasion",
+              "required_skill_level": 30,
+              "skill_check_label": "[Persuasión 30]",
+              "journal_note": "Convencí a los campesinos de colaborar con nosotros."
+            }
+          ]
+        },
+        {
+          "id": "node_03a",
+          "speaker_name": "Narrador",
+          "text": "Las llamas devoran los cultivos. Los gritos de los campesinos se mezclan con el crepitar del fuego. Has cumplido la misión, pero el precio fue alto.",
+          "emotion": "somber",
+          "next_node_id": null,
+          "sound_effect": "sfx_fire_burning_crops"
+        },
+        {
+          "id": "node_03b",
+          "speaker_name": "Campesino",
+          "text": "Gracias, señor... Dios lo bendiga. Nosotros no queríamos esto, pero el Cartel no nos dejaba opción.",
+          "emotion": "grateful",
+          "next_node_id": null
+        },
+        {
+          "id": "node_03c",
+          "speaker_name": "Líder Campesino",
+          "text": "Si nos protegen de los del Norte... le contamos todo lo que sabemos. Rutas, horarios, nombres. Todo.",
+          "emotion": "hopeful",
+          "next_node_id": null
+        }
+      ]
+    }
+  ]
+}
