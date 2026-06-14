@@ -16,11 +16,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-  -
-  -
+  - 
+  - 
   - Terrain
   - Player
   - Enemy
@@ -30,7 +30,28 @@ TagManager:
   - Vehicle
   - Vegetation
   - Interactable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1
+    locked: 0
+  - name: UI
+    uniqueID: 2
     locked: 0

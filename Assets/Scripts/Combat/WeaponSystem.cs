@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// TIERRA EN LLAMAS - WeaponSystem
@@ -394,7 +395,7 @@ public class WeaponSystem : MonoBehaviour
         }
 
         // Generar ruido moderado
-        PlayerController.Instance?.OnNoiseGenerated?.Invoke(0.4f);
+        PlayerController.Instance?.GenerateNoise(0.4f);
     }
 
     #endregion

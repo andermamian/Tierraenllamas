@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
         return timeOfDay > 0.7f || timeOfDay < 0.3f ? 0.4f : 0.9f; // Noche vs día
     }
 
-    private void GenerateNoise(float intensity)
+    public void GenerateNoise(float intensity)
     {
         // Modificar por terreno
         float terrainModifier = GetTerrainNoiseModifier();
